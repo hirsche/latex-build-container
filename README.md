@@ -28,6 +28,12 @@ be logged in to the registry as well as having created a repository on the
 respective registry. Note: Docker registries work similar to Git repositories
 but contain docker images instead of code.
 
+**Important note:** You do not need to build the image by yourself. The current
+version is published on Docker Hub and can be used directly.
+```bash
+docker pull hirsche/latex
+```
+
 ## Usage Example in GitLab CI
 
 In order to build a LaTeX document in GitLab CI, need to add `.gitlab-ci.yml`
