@@ -90,3 +90,4 @@ pushed to git repositories.
 - pull the latest version of
   [bibtex](https://git.isia.fh-salzburg.ac.at/publications/bibtex) in order to
   be able to use commonly shared references
+- add demo latexmkrc file
