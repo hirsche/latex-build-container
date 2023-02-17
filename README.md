@@ -65,6 +65,28 @@ hash. To ensure that local builds work, you may what to wrap the macro in a
 \fi
 ```
 
-For your convenience, you'll find templates in this repository for *.gitigore*
-as well as *.gitattributes* which are useful for LaTeX projects when pushed to
-git repositories.
+## Other Notes
+
+For **Linking** to the latest version of a PDF file in GitLab, you can use the
+one of following links in Markdown
+
+```markdown	
+[Show PDF!](https://git.isia.fh-salzburg.ac.at/path/to/repo/-/jobs/artifacts/main/browse?job=build_pdf)
+
+or a direct download link with an image:
+
+[![img](https://img.shields.io/badge/download-pdf-green)](https://git.isia.fh-salzburg.ac.at/path/to/repo/-/jobs/artifacts/master/raw/nameoffile.pdf?job=build_pdf)
+```
+
+Replace `path/to/repo` with the path to your repository and `nameoffile` with
+the name of the PDF-file.
+
+For your convenience, you'll find **templates** in this repository for
+*.gitigore* as well as *.gitattributes* which are useful for LaTeX projects when
+pushed to git repositories.
+
+## TODO:
+
+- pull the latest version of
+  [bibtex](https://git.isia.fh-salzburg.ac.at/publications/bibtex) in order to
+  be able to use commonly shared references
