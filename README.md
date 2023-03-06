@@ -31,7 +31,7 @@ but contain docker images instead of code.
 **Important note:** You do not need to build the image by yourself. The current
 version is published on Docker Hub and can be used directly.
 ```bash
-docker pull hirsche/latex
+docker pull hirsche/latex:latest
 ```
 
 ## Usage Example in GitLab CI
@@ -106,3 +106,4 @@ pushed to git repositories.
 - pull the latest version of
   [bibtex](https://git.isia.fh-salzburg.ac.at/publications/bibtex) in order to
   be able to use commonly shared references
+- add demo latexmkrc file
