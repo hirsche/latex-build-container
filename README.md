@@ -45,8 +45,8 @@ build_pdf:
     - wiener
   image: hirsche/latex
   script:
-    - latexmk -pretex="\def\piplineid{$CI_PIPELINE_IID}\def\commitsha{${CI_COMMIT_SHORT_SHA}}" -usepretex ${file}
-    
+    - PRETEX="\def\piplineid{$CI_PIPELINE_IID}\def\commitsha{${CI_COMMIT_SHORT_SHA}}"
+    - latexmk -pretex=${PRETEX} -usepretex ${file}
   artifacts:
     paths:
       - <NameOfCreatedPdfFile>.pdf
