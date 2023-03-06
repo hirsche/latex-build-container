@@ -45,7 +45,8 @@ build_pdf:
     - wiener
   image: hirsche/latex
   script:
-    - latexmk -pretex="\def\commitsha{${CI_COMMIT_SHORT_SHA}}" -usepretex ${file}
+    - latexmk -pretex="\def\piplineid{$CI_PIPELINE_IID}\def\commitsha{${CI_COMMIT_SHORT_SHA}}" -usepretex ${file}
+    
   artifacts:
     paths:
       - <NameOfCreatedPdfFile>.pdf
@@ -61,9 +62,24 @@ hash. To ensure that local builds work, you may what to wrap the macro in a
 
 ```latex
 \ifdefined\commitsha
-  \commitsha
+  \noindent Document Version: v\piplineid-\commitsha
 \fi
 ```
+
+`\piplineid` can be referenced to in order to print the project's pipeline ID,
+based on the environment variable `CI_PIPELINE_IID`. This id is monotonically
+increased and assigned when the pipeline is triggered, e.g. through a push to
+the repository or manually by requesting "Run pipeline".
+That makes it possible to distinguish not just between different versions of the
+same document but also to know which document is the latest one, the newer one,
+respectively.
+
+**Hint:** These latex macros are defined using the environment variables set
+during the build process in GitLab CI. The variables can be found at the page
+[GitLab CI/CD variables](https://docs.gitlab.com/ee/ci/variables/predefined_variables.html)
+in the GitLab documentation.
+**Caution:** This script assumes that if `commitsha` is defined, then `piplineid`
+is defined as well.
 
 ## Other Notes
 
