@@ -49,7 +49,7 @@ build_pdf:
     - latexmk -pretex=${PRETEX} -usepretex ${file}
   artifacts:
     paths:
-      - <NameOfCreatedPdfFile>.pdf
+      - ./*.pdf
     expire_in: 2 week
 ```
 
