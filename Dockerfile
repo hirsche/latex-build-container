@@ -49,9 +49,16 @@ RUN apt-get update && apt-get install -y \
   # temporary fix for minted, see https://github.com/gpoore/minted/issues/277
   "$PYTHONIS" \
   # Java runtime environment (e.g. for arara)
-  "$JRE" && \
-  # Removing documentation packages *after* installing them is kind of hacky,
-  # but it only adds some overhead while building the image.
-  apt-get --purge remove -y .\*-doc$ && \
-  # Remove more unnecessary stuff
-  apt-get clean -y
+  "$JRE"
+
+RUN apt-get install -y python3-pip --fix-missing
+
+RUN git clone https://github.com/google-research/arxiv-latex-cleaner && \
+  cd arxiv-latex-cleaner/ && \
+  python setup.py install
+
+# Removing documentation packages *after* installing them is kind of hacky,
+# but it only adds some overhead while building the image.
+RUN apt-get --purge remove -y .\*-doc$ && \
+    # Remove more unnecessary stuff
+    apt-get clean -y

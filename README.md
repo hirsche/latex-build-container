@@ -107,3 +107,4 @@ pushed to git repositories.
   [bibtex](https://git.isia.fh-salzburg.ac.at/publications/bibtex) in order to
   be able to use commonly shared references
 - add demo latexmkrc file
+- added https://github.com/google-research/arxiv-latex-cleaner but test missing
